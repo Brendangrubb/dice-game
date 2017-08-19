@@ -3,6 +3,15 @@ function getRandomNumber() {
   return result;
 }
 
+function userRandomNumber(userInput) {
+  if (userInput === "") {
+    var userResult = Math.floor((Math.random() * 100));
+  } else {
+    var userResult = userInput;
+  }
+  return userResult;
+}
+
 function winOrLose(user, computer) {
   if (user > computer) {
     return "You Win!"
@@ -15,18 +24,18 @@ function winOrLose(user, computer) {
 $(document).ready(function() {
   $("#engage").click(function() {
     // User Number
-    var userResult = $("#user-number").val();
-    console.log(userResult);
+    var userInput = $("#user-number").val();
+    var userResult = userRandomNumber(userInput);
     $("#your-score").empty();
     $("#your-score").append(userResult)
     // Computer Number
     var randomNumberResult = getRandomNumber();
-    console.log(randomNumberResult);
     $("#computer-score").empty();
     $("#computer-score").append(randomNumberResult);
     // Display Result
     var result = winOrLose(userResult, randomNumberResult);
-    console.log(result);
+    $("#win-or-lose").empty();
+    $("#win-or-lose").append(result);
   });
 
 });
