@@ -12,11 +12,20 @@ header {
 }
 
 .display-number {
-  font-size: 50px;
+  font-size: 30px;
   background-color: red;
   text-align: center;
 }
 
 .button-wrapper {
   text-align: center;
+}
+
+.flex-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.form-group {
+  width: 50%;
 }

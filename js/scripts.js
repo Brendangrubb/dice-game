@@ -5,11 +5,17 @@ function getRandomNumber() {
 
 
 $(document).ready(function() {
-  $("#random-number-button").click(function() {
-    console.log(getRandomNumber());
+  $("#engage").click(function() {
+    // User Number
+    var userResult = $("#user-number").val();
+    console.log(userResult);
+    $("#your-score").empty();
+    $("#your-score").append(userResult)
+    // Computer Number
     var randomNumberResult = getRandomNumber();
-    $("#random-number-display").empty();
-    $("#random-number-display").append(randomNumberResult);
+    console.log(randomNumberResult);
+    $("#computer-score").empty();
+    $("#computer-score").append(randomNumberResult);
 
   });
 

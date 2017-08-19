@@ -15,13 +15,35 @@
     <div class="container">
       <header class="header">Random Number Generator</header>
       <br><br><br><br><br>
+
+      <div class="flex-wrapper">
+        <form class="number-form">
+          <div class="form-group">
+            <label for="user-number">Enter a Number</label>
+            <input id="user-number" class="form-control user-number" type="number">
+          </div>
+        </form>
+      </div>
+
+      <br>
+
       <div class="button-wrapper">
-        <button id="random-number-button" class="btn btn-lg" type="submit">Click For A Random Number!</button>
+        <button id="engage" class="btn btn-lg" type="submit">Click For A Random Number!</button>
       </div>
+
       <br><br><br><br><br>
+
       <div class="display-number">
-        <p id="random-number-display">Random Number</p>
+        <p>Computer Score</p>
+        <p id="computer-score">bleep bloop</p>
+        <hr>
+        <p>Your Score</p>
+        <p id="your-score">goes here</p>
+        <hr>
+        <p>Result</p>
+        <p id="win-or-lose">win or lose!</p>
       </div>
+
     </div>
   </body>
 </html>
