@@ -3,6 +3,7 @@ body {
 }
 
 header {
+  border-radius: 10px;
   background-color: blue;
 }
 
@@ -15,13 +16,17 @@ header {
 .display-number {
   font-size: 30px;
   background-color: red;
+  border-radius: 10px;
   text-align: center;
 }
 
 .display-talley {
-  font-size: 30px;
+  font-size: 20px;
   background-color: white;
+  border-radius: 10px;
   text-align: center;
+  max-height: 230px;
+  overflow: scroll;
 }
 
 .button-wrapper {

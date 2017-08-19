@@ -7,7 +7,7 @@ function userRandomNumber(userInput) {
   if (userInput === "") {
     var userResult = Math.floor((Math.random() * 100));
   } else {
-    var userResult = userInput;
+    var userResult = parseInt(userInput);
   }
   return userResult;
 }
@@ -20,12 +20,30 @@ function winOrLose(user, computer) {
   }
 }
 
-function winPercentage() {
+var computerWinTotal = 0;
+var userWinTotal =  0;
+var numberOfWins = 0;
+var numberOfGames = 0;
+function winPercentage(userResult, randomNumberResult) {
+  userWinTotal +=  userResult;
+  computerWinTotal += randomNumberResult;
+  if (userResult > randomNumberResult) {
+    numberOfWins += 1;
+    numberOfGames += 1;
+  } else {
+    numberOfGames += 1;
+  };
+
+  userWinPercentage = Math.floor((numberOfWins/numberOfGames) * 100);
   var winPercentageMessage =  "computer win total = " +
-                              "C-NUMBER" +
+                              computerWinTotal +
                               "<br>" +
                               "user win total = " +
-                              "U-NUMBER";
+                              userWinTotal +
+                              "<br>" +
+                              "user win Percentage = " +
+                              userWinPercentage +
+                              "%";
   return winPercentageMessage;
 }
 
@@ -47,7 +65,7 @@ $(document).ready(function() {
     $("#win-or-lose").empty();
     $("#win-or-lose").append(result);
     $("#win-percentage").empty();
-    $("#win-percentage").append(winPercentage());
+    $("#win-percentage").append(winPercentage(userResult, randomNumberResult));
   });
 
 });
