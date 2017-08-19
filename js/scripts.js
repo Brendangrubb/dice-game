@@ -3,6 +3,14 @@ function getRandomNumber() {
   return result;
 }
 
+function winOrLose(user, computer) {
+  if (user > computer) {
+    return "You Win!"
+  } else {
+    return "You Lose!"
+  }
+}
+
 
 $(document).ready(function() {
   $("#engage").click(function() {
@@ -16,7 +24,9 @@ $(document).ready(function() {
     console.log(randomNumberResult);
     $("#computer-score").empty();
     $("#computer-score").append(randomNumberResult);
-
+    // Display Result
+    var result = winOrLose(userResult, randomNumberResult);
+    console.log(result);
   });
 
 });
