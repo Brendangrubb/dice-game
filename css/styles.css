@@ -9,11 +9,18 @@ header {
 .header {
   font-size: 50px;
   text-align: center;
+  color: white;
 }
 
 .display-number {
   font-size: 30px;
   background-color: red;
+  text-align: center;
+}
+
+.display-talley {
+  font-size: 30px;
+  background-color: white;
   text-align: center;
 }
 
