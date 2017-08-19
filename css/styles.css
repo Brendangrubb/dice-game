@@ -1,0 +1,22 @@
+body {
+  background-color: green;
+}
+
+header {
+  background-color: blue;
+}
+
+.header {
+  font-size: 50px;
+  text-align: center;
+}
+
+.display-number {
+  font-size: 50px;
+  background-color: red;
+  text-align: center;
+}
+
+.button-wrapper {
+  text-align: center;
+}
