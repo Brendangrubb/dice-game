@@ -9,11 +9,11 @@
     <script type="text/javascript" src="js/scripts.js"></script>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <title>Random Number Generator</title>
+    <title>Dice Game</title>
   </head>
   <body>
     <div class="container">
-      <header class="header">Random Number Generator</header>
+      <header class="header">Dice Game</header>
       <br><br><br>
 
       <div class="row">
@@ -21,8 +21,12 @@
           <div class="flex-wrapper">
             <form class="number-form">
               <div class="form-group">
-                <label for="user-number">Enter a Number</label>
-                <input id="user-number" class="form-control user-number" type="number">
+                <label for="user-number-one">Call Die 1</label>
+                <input id="user-number-one" class="form-control user-number" type="number">
+              </div>
+              <div class="form-group">
+                <label for="user-number-two">Call Die 2</label>
+                <input id="user-number-two" class="form-control user-number" type="number">
               </div>
             </form>
           </div>
@@ -40,19 +44,16 @@
 
       <div class="display-number row">
         <div class="col-md-4">
-          <p>Computer Score</p>
+          <p><u>Computer Dice</u></p>
           <p id="computer-score">bleep bloop</p>
-          <hr>
         </div>
         <div class="col-md-4">
-          <p>Your Score</p>
+          <p><u>Your Dice</u></p>
           <p id="your-score">goes here</p>
-          <hr>
         </div>
         <div class="col-md-4">
-          <p>Result</p>
+          <p><u>Result</u></p>
           <p id="win-or-lose">win or lose!</p>
-          <hr>
         </div>
       </div>
 
@@ -60,13 +61,13 @@
 
       <div class="display-talley row">
         <div class="col-md-4">
-          <h3><u>Computer Score Talley</u></h3>
+          <h3><u>Computer Rolls</u></h3>
           <ul id="computer-score-talley">
           </ul>
         </div>
 
         <div class="col-md-4">
-          <h3><u>Your Score Talley</u></h3>
+          <h3><u>Your Rolls</u></h3>
           <ul id="your-score-talley">
           </ul>
         </div>
