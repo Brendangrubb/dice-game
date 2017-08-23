@@ -45,3 +45,7 @@ li {
 .form-group {
   width: 80%;
 }
+
+.hide-display {
+  display: none;
+}
