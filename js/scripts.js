@@ -35,19 +35,19 @@ function winOrLose(roll, rollCount, point) {
   console.log(point);
   if (rollCount === 1) {
     if (roll === 7 | roll === 11) {
-      var result = "You Passed on the First Roll!";
+      var result = "You Pass, Motherfuker!";
     } else if (roll === 2 | roll === 3 | roll === 12) {
-      var result = "Oops, You Crapped Out!";
+      var result = "Tough Titties, You Crapped Out.";
     } else {
       var result = "Keep going, the <b>point</b> is " + roll;
     }
   } else {
     if (roll === point) {
-      var result = "You Win!!";
+      var result = "You Hit the Point, You Win!!";
     } else if (roll === 7) {
       var result = "You Sevened Out!";
     } else {
-      var result = "You didn't hit 7 or the point, keep rolling";
+      var result = "You didn't hit 7 or " + point + ", keep rolling";
     }
   }
   return result;
