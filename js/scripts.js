@@ -1,7 +1,9 @@
-function currentGame(rollCount) {
+function currentGame(rollCount, point) {
   this.rollCount = rollCount;
+  this.point = point;
 }
 
+// Player Roll Function
 function userRandomNumber(userInputOne, userInputTwo) {
   if (userInputOne === "" || userInputTwo === "") {
     var firstDie = Math.floor((Math.random() * 6) + 1);
@@ -17,26 +19,37 @@ function userRandomNumber(userInputOne, userInputTwo) {
   return userArray;
 };
 
-function winOrLose(roll, rollCount) {
+// Get Point Funtion
+function getPoint(roll, rollCount) {
+  var gameEndingRoll = [2,3,7,11,12];
+  for (var i = 0; i < gameEndingRoll.length; i++) {
+    if (roll != gameEndingRoll[i]) {
+      var point = roll;
+    } else {
+      var point = "no point";
+    }
+  }
+  return point;
+}
+function winOrLose(roll, rollCount, point) {
+  console.log(point);
   if (rollCount === 1) {
     if (roll === 7 | roll === 11) {
-      var result = ["You Passed on the First Roll!", "n/a"];
+      var result = "You Passed on the First Roll!";
     } else if (roll === 2 | roll === 3 | roll === 12) {
-      var result = ["Oops, You Crapped Out!", "n/a"];
+      var result = "Oops, You Crapped Out!";
     } else {
-      var result = ["Keep going, the <b>point</b> is " + roll, roll];
-      var point = roll;
+      var result = "Keep going, the <b>point</b> is " + roll;
     }
   } else {
     if (roll === point) {
-      var result = ["You Win!!", "n/a"];
+      var result = "You Win!!";
     } else if (roll === 7) {
-      var result = ["You Sevened Out!", "n/a"];
+      var result = "You Sevened Out!";
     } else {
-      var result = ["You didn't hit 7 or the point, keep rolling", point];
+      var result = "You didn't hit 7 or the point, keep rolling";
     }
   }
-
   return result;
 }
 
@@ -70,15 +83,20 @@ $(document).ready(function() {
     $("#current-roll").append(userResult[0] + " + " + userResult[1] + " = " + userResult[2]);
     $("#your-roll-talley").prepend("<li>" + userResult[2] + "</li>")
 
+    // Get point
+    if (newGame.rollCount === 1 ) {
+      newGame.point = getPoint(userResult[2], newGame.rollCount);
+    }
+
     // Destermine Win, Lose or Continue
-    var result = winOrLose(userResult[2], newGame.rollCount);
+    var result = winOrLose(userResult[2], newGame.rollCount, newGame.point);
 
     // Data Display
     $("#result").empty();
-    $("#result").append(result[0]);
+    $("#result").append(result);
     if (newGame.rollCount === 1) {
       $("#point").empty();
-      $("#point").append(result[1]);
+      $("#point").append(newGame.point);
     }
     $("#roll-count").empty();
     $("#roll-count").append(newGame.rollCount);
