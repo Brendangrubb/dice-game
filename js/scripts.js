@@ -5,17 +5,17 @@ function currentGame(rollCount, point) {
 
 // Player Roll Function
 function userRandomNumber(userInputOne, userInputTwo) {
-  if (userInputOne === "" || userInputTwo === "") {
+  // if (userInputOne === "" || userInputTwo === "") {
     var firstDie = Math.floor((Math.random() * 6) + 1);
     var secondDie = Math.floor((Math.random() * 6) + 1);
     var userResult = firstDie + secondDie;
     var userArray = [firstDie, secondDie, userResult];
-  } else {
-    var firstDie = parseInt(userInputOne);
-    var secondDie = parseInt(userInputTwo);
-    var userResult = firstDie + secondDie;
-    var userArray = [firstDie, secondDie, userResult];
-  }
+  // } else {
+  //   var firstDie = parseInt(userInputOne);
+  //   var secondDie = parseInt(userInputTwo);
+  //   var userResult = firstDie + secondDie;
+  //   var userArray = [firstDie, secondDie, userResult];
+  // }
   return userArray;
 };
 
@@ -90,6 +90,12 @@ $(document).ready(function() {
 
     // Destermine Win, Lose or Continue
     var result = winOrLose(userResult[2], newGame.rollCount, newGame.point);
+    if (result === "You Pass, Motherfuker!" |
+        result === "Tough Titties, You Crapped Out." |
+        result === "You Hit the Point, You Win!!" |
+        result === "You Sevened Out!") {
+      $("#engage").addClass("hide-display");
+    }
 
     // Data Display
     $("#result").empty();
