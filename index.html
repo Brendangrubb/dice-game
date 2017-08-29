@@ -59,6 +59,11 @@
         <div class="col-md-6">
           <p><u>Result</u></p>
           <p id="result">win or lose!</p>
+          <div id="player-bet" class="hide-display">
+            <input id="player-bet-input" class="bet-input form-control" type="number">
+            <button id="place-bet" class="btn button" type="submit">Place Bet</button>
+          </div>
+          <br>
         </div>
       </div>
 
@@ -76,7 +81,9 @@
           <h3><u>Game Data</u></h3>
             <p> Roll count: <span id="roll-count">0</span></p>
             <p> Point: <span id="point">n/a</span></p>
-            <p> Cash Money: <span id="cash">$100</span></p>
+            <p> Your Money: <span id="cash">$100</span></p>
+            <p> Your Bet: <span id="bet">$0</span></p>
+            <p> The Pot: <span id="pot">$0</span></p>
             <p> Games Won: <span id="games-won">0</span></p>
             <p> Games Lost: <span id="games-lost">0</span></p>
         </div>

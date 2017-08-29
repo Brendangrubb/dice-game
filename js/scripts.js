@@ -1,6 +1,8 @@
 function currentGame(rollCount, point) {
   this.rollCount = rollCount;
   this.point = point;
+  this.pot = 0;
+  this.bet = 0;
 }
 
 function currentPlayer() {
@@ -24,6 +26,12 @@ function userRandomNumber(userInputOne, userInputTwo) {
   // }
   return userArray;
 };
+
+// betting
+  function betting(playerBet) {
+    var pot = (parseInt(playerBet) * 2);
+    return pot;
+  }
 
 // Get Point Funtion
 function getPoint(roll, rollCount) {
@@ -71,7 +79,6 @@ $(document).ready(function() {
   // New Game
   $("#new-game").click(function() {
     newGame = new currentGame(0);
-    $("#engage").removeClass("hide-display");
     // Empty Fields
     $("#current-roll").empty();
     $("#your-roll-talley").empty();
@@ -80,7 +87,37 @@ $(document).ready(function() {
     $("#roll-count").append("0");
     $("#point").empty();
     $("#point").append("n/a");
-  })
+
+    // Ante
+    newGame.pot += 2;
+    player.cash -= 1;
+    $("#cash").empty();
+    $("#cash").append("$" + player.cash);
+    $("#pot").empty();
+    $("#pot").append("$" + newGame.pot);
+    $("#result").append("The ante is $1. How much more would you like to bet?");
+    $("#player-bet").removeClass("hide-display");
+  });
+
+  // Place Bet
+  $("#place-bet").click(function() {
+    var playerBet = $("#player-bet-input").val();
+    // $("#pot").append(playerBet);
+    newGame.bet = parseInt(playerBet);
+    newGame.pot += betting(playerBet);
+    player.cash -= playerBet;
+    $("#cash").empty();
+    $("#cash").append("$" + player.cash);
+    $("#engage").removeClass("hide-display");
+    $("#bet").empty();
+    $("#bet").append("$" + newGame.bet);
+    $("#pot").empty();
+    $("#pot").append("$" + newGame.pot);
+    $("#player-bet").addClass("hide-display");
+    $("#result").empty();
+    $("#result").append("You bet $" + playerBet + " and the pot is at $" + newGame.pot + ". Roll the Bones!!");
+  });
+
 
   $("#engage").click(function() {
     newGame.rollCount += 1;
@@ -107,9 +144,15 @@ $(document).ready(function() {
         result === "You Hit the Point, You Win!!" |
         result === "You Sevened Out!") {
       $("#engage").addClass("hide-display");
-    }
+    };
+    if (result === "You Pass, Motherfuker!" |
+        result === "You Hit the Point, You Win!!") {
+      console.log(player.cash);
+      console.log(newGame.pot);
+      player.cash += newGame.pot
+    };
 
-    // Data Display
+    // Current Roll Data Display
     $("#result").empty();
     $("#result").append(result);
     if (newGame.rollCount === 1) {
@@ -126,6 +169,9 @@ $(document).ready(function() {
     $("#games-won").append(player.wins);
     $("#games-lost").empty();
     $("#games-lost").append(player.losses);
-
+    $("#cash").empty();
+    $("#cash").append("$" + player.cash);
+    $("#pot").empty();
+    $("#pot").append("$" + newGame.pot);
   });
 });
